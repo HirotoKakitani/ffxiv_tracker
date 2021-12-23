@@ -1,24 +1,26 @@
-import '../styles/App.css';
 import React from 'react';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import NavBar from './NavBar';
+import Footer from './Footer';
 import AppRoutes from '../routes/AppRoutes' 
-import '../styles/App.css'
 class App extends React.Component {
   render(){
     return (
       <Router>
-        <NavBar></NavBar>
-        <AppRoutes/>
+        <div className="d-flex flex-column h-100">
+          <NavBar></NavBar>
+          <AppRoutes/>
+          <Footer></Footer>
+        </div>
+        
       </Router>
       
     );
   }
 
   componentDidMount() {
-    document.body.className = 'apptest';
     console.log('here');
   }
 }
