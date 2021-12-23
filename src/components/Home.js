@@ -2,12 +2,12 @@ import React from "react";
 class Home extends React.Component {
   render() {
     return (
-      <main className="container flex-shrink-0">
+      <main className="container flex-grow-1 d-flex flex-column justify-content-center">
         <form>
-          <div className="form-row align-items-center">
+          <div className="form-row d-flex align-items-end flex-wrap gap-3">
             <div className="col-sm m1">
               <label htmlFor="ffxiv_name_input" className="form-label">Character Name</label>
-              <input type="text" className="form-control bg-light text-dark" id="ffxiv_name_input"></input>
+              <input type="text" className="form-control bg-light text-dark" id="ffxiv_name_input" placeholder="Character Name"></input>
             </div>
             <div className="col-sm m1">
               <label htmlFor="ffxiv_world_input" className="form-label" >World</label>
@@ -16,9 +16,7 @@ class Home extends React.Component {
                 <option>test option2</option>
               </select>
             </div>
-            <div className="col-sm m1">
-              <button className="btn btn-dark" type="submit">Search</button>
-            </div>
+            <button className="btn btn-dark" type="submit">Search</button>
           </div>    
           
         </form>

@@ -2,7 +2,8 @@ import React from 'react';
 class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer fixed-bottom container-fluid bg-dark p-3">
+      // fixed-footer
+      <footer className="footer container-fluid bg-dark p-3">
         <div className="row">
           <div className="col text-center">
             Made by Hiro

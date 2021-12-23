@@ -9,7 +9,7 @@ class App extends React.Component {
   render(){
     return (
       <Router>
-        <div className="d-flex flex-column h-100">
+        <div className="d-flex flex-column min-vh-100">
           <NavBar></NavBar>
           <AppRoutes/>
           <Footer></Footer>
