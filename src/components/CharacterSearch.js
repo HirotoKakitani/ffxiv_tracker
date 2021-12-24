@@ -1,5 +1,14 @@
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { setCharacterId } from '../app/characterSlice';
 class Home extends React.Component {
+  // TODO refactor into a functional component and use dispatch. 
+  // https://www.twilio.com/blog/react-choose-functional-components
+  constructor(props){
+    super(props);
+    this.characterId = useSelector((state) => state.id.value);
+    this.dispatch = useDispatch();
+  }
   handleSubmit(event) {
     console.log('submitted', event);
     // debugger;
@@ -8,7 +17,8 @@ class Home extends React.Component {
   render() {
     return (
       <main className="container flex-grow-1 d-flex flex-column justify-content-sm-center">
-        <form onSubmit={this.handleSubmit}>
+        <span>Test Span: {this.characterId}</span>
+        <form onSubmit={this.dispatch(setCharacterId('39981839'))}>
           <div className="form-row d-flex align-items-end flex-wrap gap-3">
             <div className="col-sm m1">
               <label htmlFor="ffxiv_name_input" className="form-label">Character Name</label>
