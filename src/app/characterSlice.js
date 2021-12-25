@@ -17,6 +17,6 @@ export const characterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setCharacterId } = characterSlice.actions
+export const { setCharacterId } = characterSlice.actions;
 
 export default characterSlice.reducer

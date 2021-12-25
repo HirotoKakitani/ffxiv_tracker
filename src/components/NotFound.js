@@ -1,9 +1,10 @@
 import React from "react";
-class NotFound extends React.Component {
-  render() {
+import { useSelector } from 'react-redux'
+
+const NotFound = () => {
+    const id = useSelector((state) => state.character.value);
     return (
-      <div>NotFound</div>)
-    }
+      <div>NotFound with state: {id}</div>)
 }
 
 export default NotFound;
