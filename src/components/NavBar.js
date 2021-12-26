@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Link,
-} from "react-router-dom";
+} from 'react-router-dom';
 class NavBar extends React.Component {
   // TODO Need to change the color styling of the react bootstrap component
   render() {
@@ -23,7 +23,7 @@ class NavBar extends React.Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
-export default NavBar
+export default NavBar;

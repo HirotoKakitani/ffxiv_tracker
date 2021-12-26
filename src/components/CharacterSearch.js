@@ -1,10 +1,10 @@
-import React from "react";
-import { useDispatch } from 'react-redux';
-import { setCharacterId } from '../app/characterSlice';
+import React from 'react';
+import {useDispatch} from 'react-redux';
+import {setCharacterId} from '../app/characterSlice';
 
 const CharacterSearch = () => {
   const dispatch = useDispatch();
-    return (
+  return (
     <div>
       <div className="form-row d-flex align-items-end flex-wrap gap-3">
         <div className="col-sm m1">
@@ -20,8 +20,8 @@ const CharacterSearch = () => {
         </div>
         <button className="btn btn-dark" type="submit" onClick={() => dispatch(setCharacterId('39981839'))}>Search</button>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
 export default CharacterSearch;

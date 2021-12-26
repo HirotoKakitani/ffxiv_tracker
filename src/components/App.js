@@ -1,12 +1,15 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-} from "react-router-dom";
+} from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import AppRoutes from '../routes/AppRoutes' 
+import AppRoutes from '../routes/AppRoutes';
+/**
+ * Root App component
+ */
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <Router>
         <div className="d-flex flex-column min-vh-100">
@@ -14,9 +17,9 @@ class App extends React.Component {
           <AppRoutes/>
           <Footer></Footer>
         </div>
-        
+
       </Router>
-      
+
     );
   }
 }
