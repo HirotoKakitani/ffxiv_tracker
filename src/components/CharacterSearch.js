@@ -1,17 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCharacterId } from '../app/characterSlice';
 
-/**
- * How to persist state between pages? 
- * We just need a character ID to determine what gets loaded in every page. 
- * Don't need redux to do that, just use window.sessionStorage.
- */
 const CharacterSearch = () => {
   const dispatch = useDispatch();
-  const characterId = useSelector((state) => state.character.values);
-  return (
-    // <form onSubmit={test}>
+    return (
     <div>
       <div className="form-row d-flex align-items-end flex-wrap gap-3">
         <div className="col-sm m1">
@@ -28,7 +21,6 @@ const CharacterSearch = () => {
         <button className="btn btn-dark" type="submit" onClick={() => dispatch(setCharacterId('39981839'))}>Search</button>
       </div>
       </div>
-    // </form>
   )
 }
 
