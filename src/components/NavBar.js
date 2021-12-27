@@ -17,6 +17,7 @@ class NavBar extends React.Component {
               <Link className="nav-link" to="/mounts">Mounts</Link>
               <Link className="nav-link" to="/404">Minions</Link>
               <Link className="nav-link" to="/404">Aether Currents</Link>
+              <Link className="nav-link" to="/404">Classes</Link>
               <Link className="nav-link" to="/404">Other</Link>
             </div>
 

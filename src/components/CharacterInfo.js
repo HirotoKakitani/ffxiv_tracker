@@ -5,16 +5,26 @@ const parseData = (characterData) => {
     return <p>empty</p>
   } 
   else {
-    // TODO style the character info page
+    // TODO design the character information
     return (
-      <div className="container d-flex flex-row flex-sm-wrap">
-        <div className="col-sm-6">
-          <h1>{characterData.data.Character.Name}</h1>
-          <img className="img-fluid" src={characterData.data.Character.Portrait} alt="Character Portrait" />
+      <div className="container border border-dark border-2">
+        <div className="row bg-dark">
+          <h1>Character</h1>
         </div>
-        <div className="w-100 col-sm-6">
-          <p>{characterData.data.Character.ActiveClassJob.ClassID}</p>
+        <div className="row">
+          <div className="col-sm-4 p-4 d-flex flex-column align-items-center align-items-sm-start">
+            <div className="mb-4">
+              <h2>{characterData.data.Character.Name}</h2>
+              <h3>{characterData.data.Character.Server}</h3>
+            </div>
+            <img className="img-fluid rounded d-none d-sm-block" src={characterData.data.Character.Portrait} alt="Character Full Portrait" />
+            <img className="img-fluid rounded d-sm-none" src={characterData.data.Character.Avatar} alt="Character Small Portrait" />
+          </div>
+          <div className="col-sm-8 p-4">
+            <p>{characterData.data.Character.ActiveClassJob.ClassID}</p>
+          </div>
         </div>
+
       </div>
     )
   }
