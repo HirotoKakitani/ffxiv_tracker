@@ -1,3 +1,18 @@
 html, body, #root {
   height:100%;
 }
+
+.tooltip-target { position: relative; 
+  overflow: visible;}
+
+.tooltip-content { 
+     display: none; 
+     position: absolute;
+     top: 20px;
+     z-index:1;
+      
+}
+
+.tooltip-target:hover .tooltip-content {
+    display: block;
+}

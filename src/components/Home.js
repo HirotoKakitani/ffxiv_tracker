@@ -16,7 +16,7 @@ const Home = () => {
 
   console.log('ID', charId);
   return (
-    <main className="container flex-grow-1 d-flex flex-column justify-content-sm-center p-4">
+    <main className="container flex-grow-1 d-flex flex-column justify-content-md-center p-4">
       <Page charId={charId}></Page>
     </main>
   );
