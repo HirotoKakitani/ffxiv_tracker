@@ -65,11 +65,11 @@ const CharacterInfo = (props) => {
   // useEffect is basically like componentDidMount
   const [characterData, setCharacterData] = useState({});
   useEffect(() => {
-    const url = `https://xivapi.com/character/${props.charId}`;
+    const url = `https://xivapi.com/character/${props.charData.id}`;
     axios.get(url).then((response) => {
       setCharacterData(response);
     });
-  }, [props.charId]);
+  }, [props.charData]);
   return parseData(characterData);
 };
 

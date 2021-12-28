@@ -2,22 +2,26 @@ import React from 'react';
 import CharacterSearch from './CharacterSearch';
 import CharacterInfo from './CharacterInfo';
 import {useSelector} from 'react-redux';
+import {isInitState} from '../app/characterSlice';
 
 const Page = (props) => {
-  const validId = props.charId ? true : false;
+  let validId = false;
+  if (props.charData && !isInitState(props.charData)) {
+    validId = true;
+  }
+  
   if (validId) {
-    return <CharacterInfo charId={props.charId} />;
+    return <CharacterInfo charData={props.charData} />;
   } else {
     return <CharacterSearch />;
   }
 };
 const Home = () => {
-  const charId = useSelector((state) => state.character.value);
+  const charData = useSelector((state) => state.character.value);
 
-  console.log('ID', charId);
   return (
-    <main className="container flex-grow-1 d-flex flex-column justify-content-md-center p-4">
-      <Page charId={charId}></Page>
+    <main className="container flex-grow-1 d-flex flex-column justify-content-sm-center p-4">
+      <Page charData={charData}></Page>
     </main>
   );
 };
