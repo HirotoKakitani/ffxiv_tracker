@@ -2,30 +2,36 @@ import React from 'react';
 import {
   Link,
 } from 'react-router-dom';
-import {useSelector} from 'react-redux';
-import { isInitState } from '../app/characterSlice';
-
+import {useSelector, useDispatch} from 'react-redux';
+import { isInitState, setCharacterData } from '../app/characterSlice';
 
 const ActiveCharacter = (props) => {
   // set whether the info is shown at all
+  const dispatch = useDispatch();
   if (props.charData && !isInitState(props.charData)){
     let displayClasses;
     // set where the character info is shown
     if (props.type === 'small') {
-      displayClasses = 'd-md-none';
+      displayClasses = 'd-flex d-md-none me-2';
     }
     else if (props.type === 'large') {
-      displayClasses = 'd-none d-md-block';
+      displayClasses = 'd-none d-md-flex ';
     } 
     else {
       return null;
     }  
     console.log('returning avatar');
-    // TODO style the char info nav element
     return (
-      <div className={`${displayClasses}`}>
+      <div className={`${displayClasses} border border-1 border-altdark rounded align-items-center`}>
         <img className="img rounded" src={props.charData.avatarUrl} alt="Character Small Portrait" style={{height:'50px', width:'50px'}} />
-        <div></div>
+        <div className="mx-2 dropdown">
+          <button className="btn btn-transparent dropdown-toggle" type="button" id="navCharDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span className="d-none d-sm-inline-block">{props.charData.name}</span>
+          </button>
+          <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navCharDropdown">
+            <li><Link className="dropdown-item" to="#" onClick={() => dispatch(setCharacterData({id: '', name:'', avatarUrl: ""}))}>Change Character</Link></li>
+          </ul>
+        </div>
       </div>
     )
   }
