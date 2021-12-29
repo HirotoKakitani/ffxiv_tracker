@@ -14,7 +14,9 @@ class App extends React.Component {
       <Router>
         <div className="d-flex flex-column min-vh-100">
           <NavBar></NavBar>
-          <AppRoutes/>
+          <main className="container flex-grow-1 d-flex flex-column justify-content-sm-center p-4">
+            <AppRoutes/>
+          </main>
           <Footer></Footer>
         </div>
 

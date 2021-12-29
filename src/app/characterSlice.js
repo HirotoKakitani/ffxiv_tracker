@@ -1,6 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 import { shallowEqual } from 'react-redux';
 
+/**
+ * characterData: 
+ *  {
+ *    id: { 
+ *      name: '',
+ *      avatarUrl:''
+ *    }
+ *  }
+ */
 export const characterSlice = createSlice({
   name: 'character',
   initialState: {

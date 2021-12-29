@@ -2,6 +2,12 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import {setCharacterData} from '../app/characterSlice';
 
+// Use case for useCallback: https://www.robinwieruch.de/react-usecallback-hook/
+// if the callback function is passed in to this component as a prop, then this component will
+// rerender every time the parent rerenders, even if this component doesnt rely on any values from 
+// parent. This is because when the parent rerenders, the function definitions (passed in callback) 
+// also gets redefined. This component sees the redefined function, and rerenders even when it doesn't
+// need to. 
 const CharacterSearch = () => {
   const dispatch = useDispatch();
   const characterDataHandler = () => {

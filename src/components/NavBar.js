@@ -29,7 +29,7 @@ const ActiveCharacter = (props) => {
             <span className="d-none d-sm-inline-block">{props.charData.name}</span>
           </button>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navCharDropdown">
-            <li><Link className="dropdown-item" to="#" onClick={() => dispatch(setCharacterData({id: '', name:'', avatarUrl: ""}))}>Change Character</Link></li>
+            <li><Link className="dropdown-item" to="#" onClick={() => dispatch(setCharacterData({id: "", name:"", avatarUrl: ""}))}>Change Character</Link></li>
           </ul>
         </div>
       </div>
@@ -60,7 +60,7 @@ const NavBar = () => {
             <Link className="nav-link" to="/mounts">Mounts</Link>
             <Link className="nav-link" to="/404">Minions</Link>
             <Link className="nav-link" to="/404">Aether Currents</Link>
-            <Link className="nav-link" to="/404">Classes</Link>
+            <Link className="nav-link" to="/Classes">Classes</Link>
             <Link className="nav-link" to="/404">Other</Link>
           </div>
         </div>
