@@ -9,18 +9,18 @@ const ActiveCharacter = (props) => {
   const charData = useSelector((state) => state.character.value);
   // set whether the info is shown at all
   const dispatch = useDispatch();
-  if (charData && !isInitState(charData)){
-    let displayClasses;
-    // set where the character info is shown
-    if (props.type === 'small') {
-      displayClasses = 'd-flex d-md-none me-2';
-    }
-    else if (props.type === 'large') {
-      displayClasses = 'd-none d-md-flex ';
-    } 
-    else {
-      return null;
-    }  
+  let displayClasses;
+  // set where the character info is shown
+  if (props.type === 'small') {
+    displayClasses = 'd-flex d-md-none me-2';
+  }
+  else if (props.type === 'large') {
+    displayClasses = 'd-none d-md-flex ';
+  } 
+  else {
+    return null;
+  }
+  if (charData && !isInitState(charData)){  
     console.log('returning avatar');
     return (
       <div className={`${displayClasses} border border-1 border-altdark rounded align-items-center`}>
@@ -37,8 +37,11 @@ const ActiveCharacter = (props) => {
     )
   }
   else {
-    // TODO add a button to go to character search page
-    return null;
+    return (
+      <Link className={`${displayClasses} btn btn-dark border border-1 border-altdark rounded align-items-center`} to='/'>
+        Search
+      </Link>
+    );
   }
 
 };
