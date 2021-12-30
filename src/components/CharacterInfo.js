@@ -31,7 +31,7 @@ const CharacterInfo = () => {
   // if full characterData has been loaded, show data 
   else if (Object.keys(characterData).length > 0) {
     return (
-      <div className="container border border-dark border-2 ">
+      <div className="container border border-dark border-2">
         <div className="row bg-dark">
           <h1>Character</h1>
         </div>
