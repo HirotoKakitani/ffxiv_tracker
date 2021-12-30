@@ -6,10 +6,11 @@ $body-color: rgb(255, 255, 255);
 @import "../../node_modules/bootstrap/scss/variables";
 
 $altdark: rgba(255,255,255,0.1); 
-
+$darkmid: rgb(65, 65, 65);
 // Create your own map
 $custom-themes: (
-  "altdark": $altdark
+  "altdark": $altdark,
+  "darkmid": $darkmid,
 );
 
 

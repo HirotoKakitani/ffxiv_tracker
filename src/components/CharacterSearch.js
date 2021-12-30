@@ -1,6 +1,9 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {setCharacterData} from '../app/characterSlice';
+import {
+  Link,
+} from 'react-router-dom';
 
 // Use case for useCallback: https://www.robinwieruch.de/react-usecallback-hook/
 // if the callback function is passed in to this component as a prop, then this component will
@@ -26,7 +29,7 @@ const CharacterSearch = () => {
           <option value="opt2">test option2</option>
         </select>
       </div>
-      <button className="btn btn-primary" type="submit" onClick={characterDataHandler}>Search</button>
+      <Link className="btn btn-primary" to="/character" onClick={characterDataHandler}>Search</Link>
     </div>
   );
 };

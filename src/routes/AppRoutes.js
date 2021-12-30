@@ -1,9 +1,10 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import Home from '../components/Home';
 import Mounts from '../components/Mounts';
 import Classes from '../components/Classes';
 import NotFound from '../components/NotFound';
+import CharacterSearch from '../components/CharacterSearch';
+import CharacterInfo from '../components/CharacterInfo';
 
 function AppRoutes() {
   return (
@@ -11,7 +12,13 @@ function AppRoutes() {
       <Route
         exact path='/'
         element={
-          <Home />
+          <CharacterSearch />
+        }>
+      </Route>
+      <Route
+        exact path='/character'
+        element={
+          <CharacterInfo />
         }>
       </Route>
       <Route

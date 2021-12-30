@@ -57,10 +57,10 @@ const NavBar = () => {
         </div>
         <div className="collapse navbar-collapse" id="ffxiv-navbar-collapse">
           <div className="navbar-nav">
+            <Link className="nav-link" to="/character">Character</Link>
+            <Link className="nav-link" to="/classes">Classes</Link>
             <Link className="nav-link" to="/mounts">Mounts</Link>
             <Link className="nav-link" to="/404">Minions</Link>
-            <Link className="nav-link" to="/404">Aether Currents</Link>
-            <Link className="nav-link" to="/Classes">Classes</Link>
             <Link className="nav-link" to="/404">Other</Link>
           </div>
         </div>
