@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {useSelector} from 'react-redux';
 
 const parseData = (characterData) => {
   if (Object.keys(characterData).length === 0) {
     return <p>empty</p>
   } 
   else {
-    // Class quests: https://xivapi.com/search?indexes=Quest&filters=ClassJobCategory0.BLM=1
-    // Save to a DB and call that instead of querying FFXIV each time
-    console.log('Rendering data...');
-    
+    // TODO use accordion to show different info?
     return (
       <div className="container border border-dark border-2 ">
         <div className="row bg-dark">
@@ -49,7 +47,6 @@ const ClassInfo = (props) => {
   const currentExp = props.data.ExpLevel;
   const maxExp = props.data.ExpLevelMax;
   const expProgress = maxExp === 0 ? 0 : Math.round((currentExp/maxExp) * 100);
-  // TODO Class Icons: https://github.com/xivapi/classjob-icons
   return (
     <div className="d-inline-block">
       <div className="d-flex justify-content-between"><span className="fs-6">{jobName}</span><span className="fs-6">Lv. {classLevel}</span></div> 
@@ -62,14 +59,15 @@ const ClassInfo = (props) => {
 }
 
 const CharacterInfo = (props) => {
+  const charData = useSelector((state) => state.character.value);
   // useEffect is basically like componentDidMount
   const [characterData, setCharacterData] = useState({});
   useEffect(() => {
-    const url = `https://xivapi.com/character/${props.charData.id}`;
+    const url = `https://xivapi.com/character/${charData.id}`;
     axios.get(url).then((response) => {
       setCharacterData(response);
     });
-  }, [props.charData]);
+  }, [charData]);
   return parseData(characterData);
 };
 
