@@ -1,4 +1,5 @@
 import getImage from '../images/imageLoader';
+import { Link } from 'react-router-dom';
 
 const CharacterClassInfo = (props) => {
   let jobName = props.data.UnlockedState.Name;
@@ -10,10 +11,10 @@ const CharacterClassInfo = (props) => {
   const currentExp = props.data.ExpLevel;
   const maxExp = props.data.ExpLevelMax;
   const expProgress = maxExp === 0 ? 0 : Math.round((currentExp/maxExp) * 100);
-  const imgKey = jobName.toLowerCase().replace(' ', '');
+  const classKey = jobName.toLowerCase().replace(' ', '');
   return (
     <div className='d-flex ps-0 pe-3'>
-      <img style={{height:"50px", width:"50px"}} src={getImage(imgKey)} alt={`Icon of ${jobName}`}></img>
+      <Link to={`/classes/${classKey}`}><img style={{height:"50px", width:"50px"}} src={getImage(classKey)} alt={`Icon of ${jobName}`}></img></Link>
       <div className="flex-grow-1">
         <div className="d-flex justify-content-between"><span className="fs-6 d-none d-sm-block">{jobName}</span><span className="fs-6">Lv. {classLevel}</span></div> 
         <div className="progress tooltip-target">

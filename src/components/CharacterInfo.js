@@ -63,7 +63,12 @@ const CharacterInfo = () => {
   }
   // if character data is in the store, but full characterData still hasn't been loaded yet, don't show anything
   else {
-    return null;
+    return (
+      <div className="spinner-border align-self-center" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+    
   }
 };
 

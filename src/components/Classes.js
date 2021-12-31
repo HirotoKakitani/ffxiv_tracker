@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-import { hasValidId, capitalize  } from '../app/util';
+import { hasValidId, capitalize } from '../app/util';
 import axios from 'axios';
 import getImage from '../images/imageLoader';
 import CharacterClassInfo from './CharacterClassInfo';
+import { Link } from 'react-router-dom';
 
 // Class quests: https://xivapi.com/search?indexes=Quest&filters=ClassJobCategory0.BLM=1
 // Save to a DB and call that instead of querying FFXIV each time
@@ -15,6 +16,7 @@ import CharacterClassInfo from './CharacterClassInfo';
  * If character not selected, show: 
  *  - list of classes in game
  */ 
+// TODO style the class page redirect to individual class pages
 const Classes = () => {
   const charData = useSelector((state) => state.character.value);
   const [characterClassData, setCharacterClassData] = useState({});
@@ -36,7 +38,11 @@ const Classes = () => {
         setClassData(response);
       });
   }, [charData]);
-  let pageContent = null;
+  let pageContent = (
+    <div className="spinner-border align-self-center" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  );
   // show the character class data if it exists
   if (Object.keys(characterClassData).length > 0) {
     pageContent = characterClassData.data.Character.ClassJobs.map(classJob => 
@@ -45,23 +51,27 @@ const Classes = () => {
   }
   // otherwise show general class data
   else if (Object.keys(classData).length > 0) {
-    console.log('image: ', getImage('alchemist'));
     pageContent = classData.data.Results.map(classJob => 
             <ClassInfo data={classJob} key={classJob.ID} />
           )
   }
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4">
-      {pageContent}
+    <div className="container border border-dark border-2 bg-darkmid">
+      <div className="row bg-dark">
+        <h1>Classes</h1>
+      </div>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 p-4">
+        {pageContent}
+      </div>
     </div>
   )
 }
 
 const ClassInfo = (props) => {
-  const imgKey = props.data.Name.replace(' ', '');
+  const classKey = props.data.Name.replace(' ', '');
   return (
-    <div>
-      <img style={{height:"50px", width:"50px"}} src={getImage(imgKey)} alt={`Icon of ${props.data.Name}`}></img>
+    <div className="d-flex justify-content-center align-items-center">
+      <Link to={`/classes/${classKey}`}><img style={{height:"50px", width:"50px"}} src={getImage(classKey)} alt={`Icon of ${props.data.Name}`}></img></Link>
       <div>{capitalize(props.data.Name)}</div>
     </div>
   ) 

@@ -1,9 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {setCharacterData} from '../app/characterSlice';
-import {
-  Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Use case for useCallback: https://www.robinwieruch.de/react-usecallback-hook/
 // if the callback function is passed in to this component as a prop, then this component will
@@ -14,6 +12,7 @@ import {
 const CharacterSearch = () => {
   const dispatch = useDispatch();
   const characterDataHandler = () => {
+    // TODO search character instead of hard coding
     dispatch(setCharacterData({id: '39981839', name:'Leolo Lan\'nal', avatarUrl: "https://img2.finalfantasyxiv.com/f/5d9c87b4af26c83a796b26bb02438c25_5c8ecfbc673e1287a9b5e85423fe1657fc0_96x96.jpg?1640572383"}));
   };
   return (

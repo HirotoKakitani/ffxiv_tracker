@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { isInitState, setCharacterData } from '../app/characterSlice';
 
@@ -46,7 +44,6 @@ const ActiveCharacter = (props) => {
 
 };
 
-// TODO Need to change the color styling of the react bootstrap component
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
